@@ -1,0 +1,45 @@
+{
+  "name": "zcms",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
+    "@nextui-org/react": "^2.2.9",
+    "@prisma/client": "^5.8.1",
+    "@upstash/redis": "^1.28.2",
+    "@vercel/analytics": "^1.1.2",
+    "analytics": "github:vercel/analytics",
+    "class-variance-authority": "^0.7.0",
+    "dayjs": "^1.11.10",
+    "framer-motion": "^11.0.3",
+    "headlessui": "^0.0.0",
+    "heroicons": "^2.1.1",
+    "lucide-react": "^0.314.0",
+    "next": "14.1.0",
+    "next-auth": "^4.24.5",
+    "next-themes": "^0.2.1",
+    "radix-ui": "^1.0.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hot-toast": "^2.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "postcss": "^8",
+    "prisma": "^5.8.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
