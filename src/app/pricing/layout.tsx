@@ -1,4 +1,6 @@
 import "../../sytles/globals.css";
+import SelfNavbar from "@/components/navbarLogout";
+import Footer from "@/components/footer";
 
 export const metadata = {
   title: 'Next.js',
@@ -11,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+      <>
+        <SelfNavbar/>
+        {children}
+        <Footer/>
+      </>
   )
 }

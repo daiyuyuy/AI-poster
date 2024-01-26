@@ -20,7 +20,7 @@ import Footer from "@/components/footer";
 
 const inter = Inter({subsets: ["latin"]});
 
-const fontHeading = localFont({
+export const fontHeading = localFont({
     src: "../assets/fonts/CalSans-SemiBold.woff2",
     variable: "--font-heading",
 });
@@ -62,9 +62,7 @@ export default function RootLayout({
         >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <NextAuthProvider>
-                <SelfNavbar/>
                 {children}
-                <Footer/>
             </NextAuthProvider>
             <Analytics/>
             <Toaster/>

@@ -17,9 +17,9 @@ export default function Img2img() {
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                                      fill="currentColor" aria-hidden="true" data-slot="icon"
                                                      className="mx-auto h-12 w-12 text-gray-300">
-                                                    <path fill-rule="evenodd"
+                                                    <path fillRule="evenodd"
                                                           d="M1.5 6a2.25 2.25 0 0 1 2.25-2.25h16.5A2.25 2.25 0 0 1 22.5 6v12a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 18V6ZM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0 0 21 18v-1.94l-2.69-2.689a1.5 1.5 0 0 0-2.12 0l-.88.879.97.97a.75.75 0 1 1-1.06 1.06l-5.16-5.159a1.5 1.5 0 0 0-2.12 0L3 16.061Zm10.125-7.81a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
-                                                          clip-rule="evenodd"></path>
+                                                          clipRule="evenodd"></path>
                                                 </svg>
                                                 <div className="mt-4 flex text-sm leading-6 text-gray-600"><label
                                                     htmlFor="file-upload"
@@ -37,13 +37,13 @@ export default function Img2img() {
                                                 <div className="ant-spin-nested-loading css-dkbvqv">
                                                     <div className="ant-spin-container">
                                                         <div className="ant-row css-dkbvqv"
-                                                             style="margin-left: -5px; margin-right: -5px;">
+                                                             key="margin-left: -5px; margin-right: -5px;">
                                                             <div>
                                                                 <div className="ant-col css-dkbvqv"
-                                                                     style="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
+                                                                     key="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
                                                                     <div className="ant-list-item">
                                                                         <div className="ant-image css-dkbvqv"
-                                                                             style="width: 100px;"><img
+                                                                             key="width: 100px;"><img
                                                                             className="ant-image-img border-2 border-transparent cursor-pointer rounded-md css-dkbvqv"
                                                                             src="https://imgc.cc/2023/12/17/657f1163258b9.jpg"
                                                                             width="100"/></div>
@@ -53,10 +53,10 @@ export default function Img2img() {
                                                             </div>
                                                             <div>
                                                                 <div className="ant-col css-dkbvqv"
-                                                                     style="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
+                                                                     key="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
                                                                     <div className="ant-list-item">
                                                                         <div className="ant-image css-dkbvqv"
-                                                                             style="width: 100px;">
+                                                                             key="width: 100px;">
                                                                             <img className="ant-image-img border-2 border-indigo-600 cursor-pointer rounded-md css-dkbvqv"
                                                                             src="https://imgc.cc/2023/12/17/657f116390b97.jpg"
                                                                             width="100"/></div>
@@ -68,10 +68,10 @@ export default function Img2img() {
                                                             </div>
                                                             <div>
                                                                 <div className="ant-col css-dkbvqv"
-                                                                     style="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
+                                                                     key="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
                                                                     <div className="ant-list-item">
                                                                         <div className="ant-image css-dkbvqv"
-                                                                             style="width: 100px;"><img
+                                                                             key="width: 100px;"><img
                                                                             className="ant-image-img border-2 border-transparent cursor-pointer rounded-md css-dkbvqv"
                                                                             src="https://imgc.cc/2023/12/17/657f11638f1e3.jpg"
                                                                             width="100"/></div>
@@ -82,10 +82,10 @@ export default function Img2img() {
                                                             </div>
                                                             <div>
                                                                 <div className="ant-col css-dkbvqv"
-                                                                     style="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
+                                                                     key="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
                                                                     <div className="ant-list-item">
                                                                         <div className="ant-image css-dkbvqv"
-                                                                             style="width: 100px;"><img
+                                                                             key="width: 100px;"><img
                                                                             className="ant-image-img border-2 border-transparent cursor-pointer rounded-md css-dkbvqv"
                                                                             src="https://imgc.cc/2023/12/17/657f116394c10.jpg"
                                                                             width="100"/></div>
@@ -96,10 +96,10 @@ export default function Img2img() {
                                                             </div>
                                                             <div>
                                                                 <div className="ant-col css-dkbvqv"
-                                                                     style="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
+                                                                     key="padding-left: 5px; padding-right: 5px; flex: 1 1 auto;">
                                                                     <div className="ant-list-item">
                                                                         <div className="ant-image css-dkbvqv"
-                                                                             style="width: 100px;"><img
+                                                                             key="width: 100px;"><img
                                                                             className="ant-image-img border-2 border-transparent cursor-pointer rounded-md css-dkbvqv"
                                                                             src="https://imgc.cc/2023/12/17/657f11cf89b0c.jpg"
                                                                             width="100"/></div>
@@ -143,7 +143,7 @@ export default function Img2img() {
                                         <div className="mt-2 flex gap-x-3">
                                             <div
                                                 className="ant-select css-dkbvqv ant-select-single ant-select-show-arrow"
-                                                style="width: 200px;">
+                                                key="width: 200px;">
                                                 <div className="ant-select-selector"><span
                                                     className="ant-select-selection-search"><input autoComplete="off"
                                                                                                    className="ant-select-selection-search-input"
@@ -158,11 +158,11 @@ export default function Img2img() {
                                                                                                    type="search"
                                                                                                    value=""
                                                                                                    id="rc_select_0"
-                                                                                                   style="opacity: 0;"/></span><span
+                                                                                                   key="opacity: 0;"/></span><span
                                                     className="ant-select-selection-item"
                                                     title="Square HD">Square HD</span></div>
                                                 <span className="ant-select-arrow" unselectable="on" aria-hidden="true"
-                                                      style="user-select: none;"><span role="img" aria-label="down"
+                                                      key="user-select: none;"><span role="img" aria-label="down"
                                                                                        className="anticon anticon-down ant-select-suffix"><svg
                                                     viewBox="64 64 896 896" focusable="false" data-icon="down"
                                                     width="1em" height="1em" fill="currentColor" aria-hidden="true"><path
@@ -229,7 +229,7 @@ export default function Img2img() {
                                             <span>Advanced Settings</span>
                                             <div className="flex flex-row items-center"><span
                                                 className="transform duration-500"
-                                                style="transform: rotate(90deg);">▼</span></div>
+                                                key="transform: rotate(90deg);">▼</span></div>
                                         </div>
                                     </div>
                                     <div className="flex items-center justify-end gap-x-6 sm:col-span-4">
@@ -254,8 +254,8 @@ export default function Img2img() {
                                                         <div className="opacity-50 h-[20px] text-[#1f2937]">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="100%"
                                                                  height="100%" viewBox="0 0 24 24" fill="none"
-                                                                 stroke="currentColor" stroke-width="1.5"
-                                                                 stroke-linecap="round" stroke-linejoin="round"
+                                                                 stroke="currentColor" strokeWidth="1.5"
+                                                                 strokeLinecap="round" strokeLinejoin="round"
                                                                  className="feather feather-image">
                                                                 <rect x="3" y="3" width="18" height="18" rx="2"
                                                                       ry="2"></rect>

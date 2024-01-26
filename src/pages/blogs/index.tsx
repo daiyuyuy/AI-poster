@@ -17,7 +17,6 @@ export default function Index({allPosts: {edges}, preview}) {
     const morePosts = edges.slice(1);
     return (
         <>
-
             <Head>
                 <title>{`Next.js Blog Example with`}</title>
             </Head>

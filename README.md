@@ -1,5 +1,13 @@
 nextjs，登录相关文章：https://weijunext.com/article/061d8cd9-fcf3-4d9e-bd33-e257bc4f9989
 
+```shell
+# 初始化数据库
+npx prisma migrate dev --name "init"
+
+# 安装包
+pnpm install
+
+```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

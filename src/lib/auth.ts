@@ -38,7 +38,7 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, account }) {
-      // 登录(account仅登录那一次有值)
+      // 登录(account仅登录那一次有值) 这里写登录后的逻辑
       // Only on sign in (account only has a value at that time)
       if (account) {
         token.accessToken = account.access_token
@@ -47,9 +47,13 @@ export const authOptions: NextAuthOptions = {
         // Store the access token
         await storeAccessToken(account.access_token || '', token.sub);
 
+        console.log("token2:", token)
+        console.log("account:", account)
+
         // 用户信息存入数据库
         // Save user information in the database
         const userInfo = await upsertUserAndGetInfo(token, account);
+
         if (!userInfo || !userInfo.userId) {
           throw new Error('User information could not be saved or retrieved.');
         }

@@ -1,14 +1,12 @@
 'use client'
-import SelfNavbar from "@/components/navbarLogin";
+import SelfNavbar from "@/app/apps/navbarLogin";
 import Playground from "@/app/playground/playground"
 import Footer from "@/components/footer";
 
 export default function Home() {
   return (
     <>
-      <SelfNavbar/>
       <Playground/>
-      <Footer/>
     </>
   );
 }
