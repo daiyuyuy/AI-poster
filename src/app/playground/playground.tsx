@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Playground() {
     return (
-        <div className="bg-white">
+        <div className="bg-white py-24 sm:py-32">
             <div className="pt-3 sm:-mt-2 max-w-6xl mx-auto">
-                <div className="flex justify-center items-center flex-col bg-white pb-5">
+                <div className="flex justify-center items-center flex-col pb-5">
                     <div
                         className="relative bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-xl shadow-lg my-6 transform transition duration-500 hover:scale-105">
                         <div
@@ -16,7 +16,7 @@ export default function Playground() {
                                 If you wish to upload your own photos and transform your pets or
                                 pictures into Disney Pixar style, please consider
                             </p>
-                            <p className="inline-block mt-2 bg-white text-black font-bold py-1 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            <p className="inline-block mt-2 text-black font-bold py-1 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
                                 <Link className="text-[blue] font-bold" href="/pricing">
                                     buy credits
                                 </Link>
@@ -24,12 +24,12 @@ export default function Playground() {
                         </div>
                     </div>
                     <main
-                        className="flex min-h-screen h-full sm:flex-row justify-between bg-white w-full flex-col mx-2">
+                        className="flex min-h-screen h-full sm:flex-row justify-between w-full flex-col mx-2">
                         <div className="md:block lg:block sm:flex flex-row justify-start w-full sm:w-1/2">
                             <div className="mt-5 px-3">
                                 <h2 className="text-xl font-semibold mb-4">Prompt suggestions</h2>
                                 <div className="grid grid-cols-1 gap-2">
-                                    <div className="bg-white rounded-lg border p-4">
+                                    <div className=" rounded-lg border p-4">
                                         <p>
                                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                                             Disney AI Draw 'Milo's Magical Christmas': Illustrate a curious
@@ -38,7 +38,7 @@ export default function Playground() {
                                             glow.
                                         </p>
                                     </div>
-                                    <div className="bg-white rounded-lg border p-4">
+                                    <div className=" rounded-lg border p-4">
                                         <p>
                                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                                             Disney AI Draw 'Bella’s Winter Wonderland': Showcase a joyful
@@ -48,7 +48,7 @@ export default function Playground() {
                                         </p>
                                     </div>
                                     {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                    <div className="bg-white rounded-lg border p-4">
+                                    <div className=" rounded-lg border p-4">
                                         <p>
                                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                                             Disney AI Draw 'Oliver’s Christmas
@@ -59,7 +59,7 @@ export default function Playground() {
                                         </p>
                                     </div>
                                     {/* eslint-disable-next-line react/no-unescaped-entities */}
-                                    <div className="bg-white rounded-lg border p-4">
+                                    <div className=" rounded-lg border p-4">
                                         <p>
                                             {/* eslint-disable-next-line react/no-unescaped-entities */}
                                             Disney AI Draw 'Freddie’s Festive
@@ -106,25 +106,25 @@ export default function Playground() {
                                 description_of_the_character fields:
                             </p>
                             <div className="mt-4 grid grid-rows-1 md:grid-rows-2 lg:grid-rows-4 gap-2 w-full">
-                                <div className="bg-white rounded-lg border p-4">
+                                <div className=" rounded-lg border p-4">
                                     <p>
                                         Usage 1: Select character_name as “Mickey Mouse“ and describe
                                         his most adventurous journey.
                                     </p>
                                 </div>
-                                <div className="bg-white rounded-lg border p-4">
+                                <div className=" rounded-lg border p-4">
                                     <p>
                                         Usage 2: Choose character_name as “Elsa from Frozen“ and
                                         provide a vivid description of her using her ice powers.
                                     </p>
                                 </div>
-                                <div className="bg-white rounded-lg border p-4">
+                                <div className=" rounded-lg border p-4">
                                     <p>
                                         Usage 3: Opt for character_name “Simba“ from The Lion King and
                                         describe his path to becoming king of the Pride Lands.
                                     </p>
                                 </div>
-                                <div className="bg-white rounded-lg border p-4">
+                                <div className=" rounded-lg border p-4">
                                     <p>
                                         Usage 4: Invent your own Disney character by specifying
                                         character_name and provide a detailed description of their
@@ -142,10 +142,10 @@ export default function Playground() {
                                 <div className="font-semibold">
                                     description_of_the_character:
                                     <span className="text-blue-600">
-                  {" "}
+              {" "}
                                         A cute and friendly Westie with a travel bag, boarding the
-                  plane.
-                </span>
+              plane.
+            </span>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ export default function Playground() {
                                 If you wish to upload your own photos and transform your pets or
                                 pictures into Disney Pixar style, please consider
                             </p>
-                            <p className="inline-block mt-2 bg-white text-black font-bold py-1 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            <p className="inline-block mt-2  text-black font-bold py-1 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">
                                 <Link className="text-[blue] font-bold" href="/pricing">
                                     buy credits
                                 </Link>

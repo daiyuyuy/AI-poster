@@ -6,9 +6,7 @@ import Playground from "@/app/playground/playground";
 export default function Home() {
   return (
     <>
-      <SelfNavbar/>
       <Playground/>
-      <Footer/>
     </>
   );
 }

@@ -53,7 +53,7 @@ const blogPosts = [
 export default function ImgGrid() {
     return (
         // todo 上面有一条黑线，问题在这里。需要修复
-        <div className="bg-white">
+        <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8 ">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Disney AI Posters Generator Art Images</h2>
