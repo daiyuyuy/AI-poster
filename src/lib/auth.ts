@@ -1,3 +1,6 @@
+// 参考 https://www.cnblogs.com/ttppl/articles/15730854.html
+// 参考2:
+
 import { ONE_DAY } from "@/lib/constants";
 import { getUserSubscriptionStatus } from "@/lib/lemonsqueezy/subscriptionFromStorage";
 import prisma from "@/lib/prisma";
