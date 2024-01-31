@@ -5,7 +5,10 @@ import { UserInfo } from "@/types/user";
 
 export default async function Home() {
     const user = (await getCurrentUser()) as UserInfo;
-
+    // 需要登录
+    if (!user.username) {
+        redirect('/login')
+    }
 
     return (
         <>

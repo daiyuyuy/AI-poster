@@ -3,6 +3,7 @@ import Container from "@/app/apps/navbarLogin";
 import {getCurrentUser} from "@/lib/session";
 import {UserInfo, UseRemaining} from "@/types/user";
 import {checkStatus} from "@/lib/membership/checkStatus";
+import {redirect} from "next/navigation";
 
 export const metadata = {
     title: 'Next.js',
@@ -16,6 +17,8 @@ export default async function Layout({
 }) {
     const user = (await getCurrentUser()) as UserInfo;
     const userRemain = await checkStatus(user) as UseRemaining;
+
+
 
     return (
         <>
