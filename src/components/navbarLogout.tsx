@@ -4,11 +4,12 @@ import {useState} from "react";
 import {Dialog} from '@headlessui/react'
 import {Bars3Icon, XMarkIcon} from '@heroicons/react/24/outline'
 
+// href 开头带 / 表示 绝对路径。不带表示相对路径
 const navigation = [
-    {name: 'Home', href: 'home'},
-    {name: 'Playground', href: 'playground'},
-    {name: 'Pricing', href: 'pricing'},
-    {name: 'Blogs', href: 'blogs'},
+    {name: 'Home', href: '/home'},
+    {name: 'Playground', href: '/playground'},
+    {name: 'Pricing', href: '/pricing'},
+    {name: 'Blogs', href: '/blogs'},
 ]
 export default function MyNavbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
