@@ -11,8 +11,8 @@ const tiers = [
     //     mostPopular: false,
     // },
     {
-        name: 'PoorStartup',
-        id: 'tier-freelancer',
+        name: 'LightTrial',
+        id: 'tier-trial',
         href: '#',
         priceMonthly: '$5.9',
         description: '30 Image Credits.',

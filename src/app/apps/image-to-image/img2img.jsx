@@ -23,10 +23,11 @@ export default function Img2img() {
                                                 </svg>
                                                 <div className="mt-4 flex text-sm leading-6 text-gray-600"><label
                                                     htmlFor="file-upload"
-                                                    className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"><span>Upload a picture</span><input
-                                                    id="file-upload" className="sr-only"
+                                                    className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"><span>Upload a picture</span>
+                                                    <input id="file-upload" className="sr-only"
                                                     accept="image/jpeg, image/png, image/gif, image/webp, image/jpg"
-                                                    type="file" name="file-upload"/></label></div>
+                                                    type="file" name="file-upload"/>
+                                                </label></div>
                                             </div>
                                         </div>
                                     </div>
@@ -119,7 +120,8 @@ export default function Img2img() {
                                         <div className="mt-2"><textarea
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
                                             required="" rows="1"
-                                            placeholder="'Kal' at the top of the poster"></textarea></div>
+                                            placeholder="'Kal' at the top of the poster"
+                                        ></textarea></div>
                                     </div>
                                     <div><label htmlFor="email"
                                                 className="block text-sm font-medium leading-6 text-gray-900">Prompt<span
@@ -134,7 +136,7 @@ export default function Img2img() {
                                         Prompt<span className="text-gray-400 font-normal">（Type what you don't want to see）</span></label>
                                         <div className="mt-2"><input
                                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-3"
-                                            value="noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo, NSFW"/>
+                                            defaultValue="noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo, NSFW"/>
                                         </div>
                                     </div>
                                     <div><label htmlFor="email"
@@ -156,7 +158,7 @@ export default function Img2img() {
                                                                                                    readOnly=""
                                                                                                    unselectable="on"
                                                                                                    type="search"
-                                                                                                   value=""
+                                                                                                   defaultValue=""
                                                                                                    id="rc_select_0"
                                                                                                    key="opacity: 0;"/></span><span
                                                     className="ant-select-selection-item"
@@ -191,7 +193,7 @@ export default function Img2img() {
                                                     <div className="ant-input-number-input-wrap"><input
                                                         autoComplete="off" role="spinbutton" aria-valuemin="100"
                                                         aria-valuemax="1024" aria-valuenow="1024" step="1"
-                                                        className="ant-input-number-input" disabled="" value="1024"/>
+                                                        className="ant-input-number-input" disabled="" defaultValue="1024"/>
                                                     </div>
                                                 </div>
                                                 <span className="font-bold text-xl">×</span>
@@ -217,7 +219,7 @@ export default function Img2img() {
                                                     <div className="ant-input-number-input-wrap"><input
                                                         autoComplete="off" role="spinbutton" aria-valuemin="100"
                                                         aria-valuemax="1024" aria-valuenow="1024" step="1"
-                                                        className="ant-input-number-input" disabled="" value="1024"/>
+                                                        className="ant-input-number-input" disabled="" defaultValue="1024"/>
                                                     </div>
                                                 </div>
                                             </div>

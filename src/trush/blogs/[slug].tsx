@@ -5,9 +5,9 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/fetchData";
 import SelfNavbar from "@/components/navbarLogout";
 import Footer from "@/components/footer";
-import BlogPage from "@/pages/blogs/blogPage";
-import BlogsLayout from "@/pages/blogs/blogsLayout";
-import Index from "@/pages/blogs/index";
+import BlogPage from "@/trush/blogs/blogPage";
+import BlogsLayout from "@/trush/blogs/blogsLayout";
+import Index from "@/trush/blogs/index";
 
 export default function Post({ post, posts, preview }) {
     const router = useRouter();

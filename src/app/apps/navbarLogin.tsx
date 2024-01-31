@@ -18,14 +18,13 @@ import {Fragment, useState} from 'react'
 import {Dialog, Menu, Transition} from '@headlessui/react'
 import {
     Bars3Icon,
-    BellIcon,
-    Cog6ToothIcon,
     HomeIcon,
     UsersIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import {ChevronDownIcon, MagnifyingGlassIcon} from '@heroicons/react/20/solid'
 import {UserAvatar} from "@/components/UserAvatar";
+import {UserInfo} from "@/types/user";
 
 const navigation = [
     {name: 'Playground(Premium)', href: '/apps/image-to-image', icon: HomeIcon, current: true},
@@ -34,9 +33,15 @@ const navigation = [
 
 const userNavigation = [
     {name: 'Buy Credits', href: '/pricing'},  // 暂时让跳转一下
-    {name: 'Home', href: '/'},
+    {name: 'Home', href: '/home'},
     {name: 'Get Support', href: '#'},     // 发送邮件
     {name: 'Sign out', href: '/api/auth/signout'},
+]
+
+const teams = [
+    { id: 1, name: 'Home', href: '/home', initial: 'H', current: false },
+    { id: 2, name: 'Pricing', href: '/pricing', initial: 'P', current: false },
+    { id: 3, name: 'Blogs', href: '/blogs', initial: 'B', current: false },
 ]
 
 
@@ -44,7 +49,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Container({contentComponent, user}) {
+export default function Container({contentComponent, userInfo, userRemain}) {
     const [sidebarOpen, setSidebarOpen] = useState(false)
 
     return (
@@ -137,6 +142,38 @@ export default function Container({contentComponent, user}) {
                                                         ))}
                                                     </ul>
                                                 </li>
+                                                <li>
+                                                    <div className="text-xs font-semibold leading-6 text-gray-400">Your
+                                                        teams
+                                                    </div>
+                                                    <ul role="list" className="-mx-2 mt-2 space-y-1">
+                                                        {teams.map((team) => (
+                                                            <li key={team.name}>
+                                                                <a
+                                                                    href={team.href}
+                                                                    className={classNames(
+                                                                        team.current
+                                                                            ? 'bg-gray-50 text-indigo-600'
+                                                                            : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
+                                                                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                                                                    )}
+                                                                >
+                                  <span
+                                      className={classNames(
+                                          team.current
+                                              ? 'text-indigo-600 border-indigo-600'
+                                              : 'text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600',
+                                          'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
+                                      )}
+                                  >
+                                    {team.initial}
+                                  </span>
+                                                                    <span className="truncate">{team.name}</span>
+                                                                </a>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -186,6 +223,36 @@ export default function Container({contentComponent, user}) {
                                         ))}
                                     </ul>
                                 </li>
+                                <li>
+                                    <div className="text-xs font-semibold leading-6 text-gray-400">Pages</div>
+                                    <ul role="list" className="-mx-2 mt-2 space-y-1">
+                                        {teams.map((team) => (
+                                            <li key={team.name}>
+                                                <a
+                                                    href={team.href}
+                                                    className={classNames(
+                                                        team.current
+                                                            ? 'bg-gray-50 text-indigo-600'
+                                                            : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50',
+                                                        'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                                                    )}
+                                                >
+                          <span
+                              className={classNames(
+                                  team.current
+                                      ? 'text-indigo-600 border-indigo-600'
+                                      : 'text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600',
+                                  'flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white'
+                              )}
+                          >
+                            {team.initial}
+                          </span>
+                                                    <span className="truncate">{team.name}</span>
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -208,20 +275,21 @@ export default function Container({contentComponent, user}) {
                                 <Menu as="div" className="relative">
                                     <Menu.Button className="-m-1.5 flex items-center p-1.5">
                                         <span className="sr-only">Open user menu</span>
-                                            <div className="flex items-center justify-center mr-10">
-                                                <p className="text-blue-600 underline">
-                                                    <label>Credits: 0</label>
+                                        <div className="flex items-center justify-center mr-10">
+                                            <p className="text-blue-600 underline">
+                                            <label>Credits: {userRemain.useTotalRemain}</label>
+                                                    {/*<label>Expire: {userRemain.useExpire}</label>*/}
                                                 </p>
                                             </div>
 
                                               <span className="ml-4 text-sm font-semibold leading-6 text-gray-900"
                                                     aria-hidden="true">
-                                                {user ? (<UserAvatar
+                                                {userInfo ? (<UserAvatar
                                                     user={{
-                                                        username: user.username,
-                                                        avatar: user.avatar,
-                                                        role: user.role,
-                                                        email: user.email,
+                                                        username: userInfo.username,
+                                                        avatar: userInfo.avatar,
+                                                        role: userInfo.role,
+                                                        email: userInfo.email,
                                                     }}
                                                     className="h-8 w-8"
                                                 />) : (<></>)}

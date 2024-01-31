@@ -38,7 +38,7 @@ model User {
   subscriptionId   String?
   customerId       String?
   variantId        Int?
-  currentPeriodEnd Int?
+  currentPeriodEnd Int?  // 结束时间？
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

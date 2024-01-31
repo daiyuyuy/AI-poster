@@ -1,6 +1,6 @@
 import { User } from "@prisma/client";
 
-export type Role = 0 | 2; // 0 Standard User; 2 Member User
+export type Role = 0 | 1 | 2 | 3; // 0 Standard User; 1 2 3 Member User
 
 export type RedisUserId = string | null
 
@@ -22,6 +22,11 @@ export interface UserInfo {
   role: Role;
   membershipExpire?: number;
   accessToken?: string;
+}
+
+export interface UseRemaining {
+  useExpire: number;
+  useTotalRemain: number;
 }
 
 export interface PrismaUser extends User { }

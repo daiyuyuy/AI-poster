@@ -50,9 +50,6 @@ export const authOptions: NextAuthOptions = {
         // Store the access token
         await storeAccessToken(account.access_token || '', token.sub);
 
-        console.log("token2:", token)
-        console.log("account:", account)
-
         // 用户信息存入数据库
         // Save user information in the database
         const userInfo = await upsertUserAndGetInfo(token, account);

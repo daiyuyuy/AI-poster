@@ -7,8 +7,8 @@ import {GetStaticProps} from "next";
 import {getAllPostsForHome} from "@/lib/fetchData";
 import SelfNavbar from "@/components/navbarLogout";
 import Footer from "@/components/footer";
-import FormTheBlog from "@/pages/blogs/formTheBlog";
-import BlogsLayout from "@/pages/blogs/blogsLayout";
+import FormTheBlog from "@/trush/blogs/formTheBlog";
+import BlogsLayout from "@/trush/blogs/blogsLayout";
 // import MoreStories from "../../postComponents/more-stories";
 
 // 从allPosts 取出 edges， edges 是一个列表
