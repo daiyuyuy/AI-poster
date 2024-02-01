@@ -9,7 +9,7 @@ import type { NextRequest } from "next/server";
 //
 //     if (request.nextUrl.pathname === '/playground') {
 //         const user = (await getCurrentUser()) as UserInfo;
-//         if (user.username) {
+//         if (user?.username) {
 //             return NextResponse.redirect('/apps');
 //         }
 //     }

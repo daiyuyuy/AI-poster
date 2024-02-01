@@ -10,7 +10,7 @@ import {redirect} from "next/navigation";
 
 export default async function Home() {
     const user = (await getCurrentUser()) as UserInfo;
-    if (user.username) {
+    if (user?.username) {
         redirect('/apps')
     }
     return (

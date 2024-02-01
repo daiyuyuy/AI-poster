@@ -18,8 +18,6 @@ export default async function Layout({
     const user = (await getCurrentUser()) as UserInfo;
     const userRemain = await checkStatus(user) as UseRemaining;
 
-
-
     return (
         <>
             <Container contentComponent={children} userInfo={user} userRemain={userRemain}/>
