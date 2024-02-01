@@ -13,7 +13,7 @@ const tiers = [
     {
         name: 'LightTrial',
         id: 'tier-trial',
-        href: '/buy',
+        href: '#',
         priceMonthly: '$5.9',
         description: '30 Image Credits.',
         features: ['Upload your photo', 'Valid for 1 month', 'Fast generation', 'High quality images'],
@@ -22,7 +22,7 @@ const tiers = [
     {
         name: 'Startup',
         id: 'tier-startup',
-        href: '/buy',
+        href: '#',
         priceMonthly: '$12.9',
         description: '100 Image Credits.',
         features: ['Upload your photo', 'Valid for 2 month', 'Fast generation', 'High quality images'],
@@ -31,7 +31,7 @@ const tiers = [
     {
         name: 'Enterprise',
         id: 'tier-enterprise',
-        href: '/buy',
+        href: '#',
         priceMonthly: '$19.9',
         description: '200 Image Credits.',
         features: ['Upload your photo', 'Valid for 3 month', 'Fast generation', 'High quality images'],

@@ -1,4 +1,9 @@
+## 还可以参考另外
+https://weijunext.com/article/49744a7c-f56b-43d7-8864-693ed3efa1a5
+使用 contentlayer， 只需要写markdown 文件即可
+
 # Guide for adding articles
+
 
 > To check if everything worked as you expected just do `yarn` - to install dependencies, `yarn dev` - to run the code and open it on [`localhost:3000`](http://localhost:3000)
 

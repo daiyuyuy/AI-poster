@@ -35,7 +35,7 @@ const userNavigation = [
     {name: 'Buy Credits', href: '/pricing'},  // 暂时让跳转一下
     {name: 'Home', href: '/home'},
     {name: 'Get Support', href: '#'},     // 发送邮件
-    {name: 'Sign out', href: '/api/auth/signout'},
+    {name: 'Sign out', href: '/api/logout'},
 ]
 
 const teams = [
@@ -44,11 +44,12 @@ const teams = [
     { id: 3, name: 'Blogs', href: '/blogs', initial: 'B', current: false },
 ]
 
-
+//@ts-ignores
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+//@ts-ignores
 export default function Container({contentComponent, userInfo, userRemain}) {
     const [sidebarOpen, setSidebarOpen] = useState(false)
 

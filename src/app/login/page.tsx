@@ -20,7 +20,7 @@ export default async function LoginPage() {
         <div className="flex flex-col space-y-2 text-center">
           <Image
             alt="logo"
-            src="/logo.svg"
+            src="/image/22214dogface_98779.ico"
             className="sm:w-12 sm:h-12 w-6 h-6 mx-auto"
             width={32}
             height={32}

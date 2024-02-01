@@ -33,7 +33,7 @@ export const MEMBERSHIP_EXPIRE: { [key in Role]: number } = {
 // Functions to create cache keys for tracking user data.
 
 // 用户剩余使用次数
-export const getUserTotalRemainKey = ({ userId }: UserId) => {
+export const getUserTotalRemainKey = (userId: string) => {
   const key = `USER_USAGE::uid:${userId}`;
   return key
 }

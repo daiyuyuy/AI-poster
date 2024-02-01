@@ -21,7 +21,7 @@ export function UserAuthForm({ className, user, ...props }: UserAuthFormProps) {
   const login = async (platform: string) => {
     // user已登录，返回首页
     if (user && user.userId) {
-      router.push("/");
+      router.push("/apps");
       return;
     }
     if (platform === "github") {
@@ -31,7 +31,8 @@ export function UserAuthForm({ className, user, ...props }: UserAuthFormProps) {
       setIsGoogleLoading(true);
     }
     signIn(platform, {
-      callbackUrl: `${window.location.origin}`,
+      // callbackUrl: `${window.location.origin}`,
+      callbackUrl: "/apps",
     });
   };
 
