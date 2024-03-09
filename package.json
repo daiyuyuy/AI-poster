@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev2": "next dev -p 8589",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -13,15 +14,16 @@
     "prisma:migrate:init": "npx prisma migrate dev --name init"
   },
   "dependencies": {
+    "@gradio/client": "^0.10.1",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@mdx-js/loader": "^2.3.0",
     "@next/mdx": "^13.4.4",
     "@nextui-org/react": "^2.2.9",
     "@prisma/client": "^5.8.1",
+    "@tailwindcss/forms": "^0.5.7",
     "@upstash/redis": "^1.28.2",
     "@vercel/analytics": "^1.1.2",
-    "analytics": "github:vercel/analytics",
     "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.10",
@@ -34,6 +36,7 @@
     "next-auth": "^4.24.5",
     "next-themes": "^0.2.1",
     "radix-ui": "^1.0.1",
+    "raw-body": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",

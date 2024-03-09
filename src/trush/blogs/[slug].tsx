@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/fetchData";
+import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/wp_cms/fetchData";
 import SelfNavbar from "@/components/navbarLogout";
 import Footer from "@/components/footer";
 import BlogPage from "@/trush/blogs/blogPage";

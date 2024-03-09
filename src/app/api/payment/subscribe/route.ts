@@ -5,8 +5,10 @@ import prisma from "@/lib/prisma";
 import { unauthorizedResponse } from "@/lib/response/responseUtils";
 import { verifyReferer, verifyToken } from "@/lib/verifyUtils/verifyUtils";
 import { UpgradeType, } from "@/types/subscribe";
+// @ts-ignore
 import type { CreateCheckoutResult } from "lemonsqueezy.ts/dist/types";
 import { NextResponse } from "next/server";
+import {number} from "prop-types";
 
 export async function POST(request: Request) {
   try {
@@ -22,13 +24,13 @@ export async function POST(request: Request) {
       return unauthorizedResponse("Token validation failed. Please login again.");
     }
 
-    const { userId, type }: { userId: string, type: UpgradeType } = await request.json()
+    const { userId, type, variantId }: { userId: string, type: UpgradeType, variantId: string } = await request.json()
     if (!userId) {
       return unauthorizedResponse("Your account was not found");
     }
-    const variantId = VARIANT_IDS_BY_TYPE[type]
+
     if (!type || !variantId) {
-      return unauthorizedResponse("Your account was not found");
+      return unauthorizedResponse("variantId was not found");
     }
 
     const user = await prisma.user.findUnique({
@@ -43,7 +45,7 @@ export async function POST(request: Request) {
       {
         data: {
           type: "checkouts",
-          attributes: { checkout_data: { custom: { email: user.email, userId: user.userId, username: user.username, type } } },
+          attributes: { checkout_data: { custom: { email: user.email, userId: user.userId, username: user.username, variantId: variantId.toString(), type } } },
           relationships: {
             store: { data: { type: "stores", id: process.env.LEMON_SQUEEZY_STORE_ID } },
             variant: { data: { type: "variants", id: variantId.toString() } },

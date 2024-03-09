@@ -4,7 +4,7 @@ import Head from "next/head";
 import {GetStaticProps} from "next";
 
 
-import {getAllPostsForHome} from "@/lib/fetchData";
+import {getAllPostsForHome} from "@/lib/wp_cms/fetchData";
 import SelfNavbar from "@/components/navbarLogout";
 import Footer from "@/components/footer";
 import FormTheBlog from "@/trush/blogs/formTheBlog";

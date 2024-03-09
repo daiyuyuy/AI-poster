@@ -24,7 +24,6 @@ import {
 } from '@heroicons/react/24/outline'
 import {ChevronDownIcon, MagnifyingGlassIcon} from '@heroicons/react/20/solid'
 import {UserAvatar} from "@/components/UserAvatar";
-import {UserInfo} from "@/types/user";
 
 const navigation = [
     {name: 'Playground(Premium)', href: '/apps/image-to-image', icon: HomeIcon, current: true},

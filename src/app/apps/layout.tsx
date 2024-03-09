@@ -1,9 +1,8 @@
 import "../../sytles/globals.css";
 import Container from "@/app/apps/navbarLogin";
 import {getCurrentUser} from "@/lib/session";
-import {UserInfo, UseRemaining} from "@/types/user";
-import {checkStatus} from "@/lib/membership/checkStatus";
-import {redirect} from "next/navigation";
+import {UserInfo} from "@/types/user";
+import {checkStatus, getUserDateRemaining} from "@/lib/usage/usage";
 
 export const metadata = {
     title: 'Next.js',
@@ -16,11 +15,11 @@ export default async function Layout({
     children: React.ReactNode
 }) {
     const user = (await getCurrentUser()) as UserInfo;
-    const userRemain = await checkStatus(user) as UseRemaining;
+    const userRemain = await getUserDateRemaining(user?.userId);
 
     return (
         <>
-            <Container contentComponent={children} userInfo={user} userRemain={userRemain}/>
+            <Container contentComponent={children} userInfo={user} userRemain={userRemain.userDateRemaining}/>
         </>
     )
 }

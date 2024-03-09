@@ -1,49 +1,63 @@
+"use client"
+
 import { CheckIcon } from '@heroicons/react/20/solid'
+import toast from "react-hot-toast";
+import axios from "axios";
+import {CreateCheckoutResponse} from "@/types/subscribe";
+import {SINGLE_VARIANT_KEY} from "@/lib/constants";
 
-const tiers = [
-    // {
-    //     name: 'Freelancer',
-    //     id: 'tier-freelancer',
-    //     href: '#',
-    //     priceMonthly: '$0',
-    //     description: 'Free forever.',
-    //     features: ['Text to Image', 'Valid forever', 'Slow generation', 'High quality images'],
-    //     mostPopular: false,
-    // },
-    {
-        name: 'LightTrial',
-        id: 'tier-trial',
-        href: '/buy',
-        priceMonthly: '$5.9',
-        description: '30 Image Credits.',
-        features: ['Upload your photo', 'Valid for 1 month', 'Fast generation', 'High quality images'],
-        mostPopular: false,
-    },
-    {
-        name: 'Startup',
-        id: 'tier-startup',
-        href: '/buy',
-        priceMonthly: '$12.9',
-        description: '100 Image Credits.',
-        features: ['Upload your photo', 'Valid for 2 month', 'Fast generation', 'High quality images'],
-        mostPopular: true,
-    },
-    {
-        name: 'Enterprise',
-        id: 'tier-enterprise',
-        href: '/buy',
-        priceMonthly: '$19.9',
-        description: '200 Image Credits.',
-        features: ['Upload your photo', 'Valid for 3 month', 'Fast generation', 'High quality images'],
-        mostPopular: false,
-    },
-]
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function Pricing() {
+
+// @ts-ignore
+// ⚠️ 这里是函数，到了 nextjs 成了组件。 所以，函数组件，最好是默认添加 {} 来保证值在传递过程中，不被包装成对象
+// 记录参考：https://ae2ggu10lx.feishu.cn/docx/Ziowd4IEvo4YbSxWAKHcX5DinJe
+export default function Pricing({tiers, user}: { user: UserInfo | null }) {
+    const subscribe = async (VARIANT_ID: any) => {
+        if (!user || !user.userId) {
+            toast.error("Please login first");
+            return;
+        }
+        try {
+            // const { checkoutURL } = await axios.post<any, CreateCheckoutResponse>(
+            const response = await axios.post<any, CreateCheckoutResponse>(
+                "/api/payment/subscribe",
+                {
+                    userId: user.userId,
+                    type: SINGLE_VARIANT_KEY,
+                    variantId: VARIANT_ID,
+                },
+                {
+                    headers: {
+                        token: user.accessToken,
+                    },
+                }
+            );
+            const checkoutURL = response.data?.checkoutURL
+            // console.log("response: ", response)
+            // console.log("checkoutURL: ", checkoutURL)
+            // 在响应中获取到购买URL，客户端将把用户重定向到该URL，用户可在该URL内进行付费和跳转
+            window.location.href = checkoutURL;
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const handleClick = (event: {
+        target: any;
+        preventDefault: () => void; }) => {
+        event.preventDefault(); // 阻止默认的导航行为
+        // 在这里执行你的函数逻辑
+        const VARIANT_ID = event.target.getAttribute('data-value');
+        console.log('VARIANT_ID: ', VARIANT_ID);
+        subscribe(VARIANT_ID).then(r => {})
+    }
+
+        // 执行其他操作，如导航到其他页面
+
     return (
         <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -100,11 +114,10 @@ export default function Pricing() {
                                         </p>
                                     ) : null}
                                 </div>
-                                <p className="mt-4 text-sm leading-6 text-gray-600">{tier.description}</p>
+                                <p className="mt-4 text-sm leading-6 text-gray-600"></p>
                                 <p className="mt-6 flex items-baseline gap-x-1">
-                                    <span
-                                        className="text-4xl font-bold tracking-tight text-gray-900">{tier.priceMonthly}</span>
-                                    <span className="text-sm font-semibold leading-6 text-gray-600">/month</span>
+                                    <span className="text-4xl font-bold tracking-tight text-gray-900">{tier.priceMonthly}</span>
+                                    <span className="text-sm font-semibold leading-6 text-gray-600">/ {tier.description}</span>
                                 </p>
                                 <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600">
                                     {tier.features.map((feature) => (
@@ -118,6 +131,8 @@ export default function Pricing() {
                             </div>
                             <a
                                 href={tier.href}
+                                data-value={tier.dataValue}
+                                onClick={handleClick}
                                 aria-describedby={tier.id}
                                 className={classNames(
                                     tier.mostPopular

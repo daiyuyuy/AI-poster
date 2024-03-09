@@ -26,7 +26,7 @@ export interface SubScriptionInfo {
   customerId: string;
   variantId: number;
   role: Role;
-  isCanceled?: boolean;   // todo 这里面挺多不需要的，后续再处理
+  isCanceled?: boolean;
   updatePaymentMethodURL?: string;
   customerPortal?: string;
 }

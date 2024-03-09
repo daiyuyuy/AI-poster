@@ -1,5 +1,8 @@
 nextjs，登录相关文章：https://weijunext.com/article/061d8cd9-fcf3-4d9e-bd33-e257bc4f9989
 
+ai产品构建：https://www.gradio.app/guides/getting-started-with-the-js-client
+
+
 ```shell
 # 初始化数据库
 npx prisma migrate dev --name "init"
@@ -48,6 +51,18 @@ seo等问题修复
 
 ## Deploy on Vercel
 
+反向打洞
+ssh -NfR 8589:localhost:3000 root@47.115.211.159 -p 22
+
+ssh -NfR server_port:localhost:local_port root@47.115.211.159 -p 22
+
+ssh -qngfNTR 3000:127.0.0.1:8589 dell
+
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## 工具使用
+
+notion image

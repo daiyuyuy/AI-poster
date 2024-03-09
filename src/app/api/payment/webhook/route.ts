@@ -1,4 +1,4 @@
-import { ONE_DAY, getSinglePayOrderKey } from "@/lib/constants";
+import {ONE_DAY, getSinglePayOrderKey, boostPackIdList, membershipIdList} from "@/lib/constants";
 import { client } from "@/lib/lemonsqueezy/lemons";
 import prisma from "@/lib/prisma";
 import redis from "@/lib/redis";
@@ -13,7 +13,7 @@ import rawBody from "raw-body";
 import { Readable } from "stream";
 
 export async function POST(request: Request) {
-  console.log('webhook');
+  console.log('webhook1');
   const body = await rawBody(Readable.from(Buffer.from(await request.text())));
   const headersList = headers();
   const payload = JSON.parse(body.toString());
@@ -36,7 +36,10 @@ export async function POST(request: Request) {
   }
 
   const userId = payload.meta.custom_data && payload.meta.custom_data.userId || '';
+  const variantId = payload.meta.custom_data && payload.meta.custom_data.variantId || Number(process.env.LEMON_SQUEEZY_MEMBERSHIP_SINGLE_TIME_VARIANT_ID_2 || 2);
   // Check if custom defined data i.e. the `userId` is there or not
+
+  console.log("variantId:", variantId)
   if (!userId) {
     return NextResponse.json({ message: "No userId provided" }, { status: 403 });
   }
@@ -48,17 +51,24 @@ export async function POST(request: Request) {
 
   const first_order_item = payload.data.attributes.first_order_item || null
 
+  console.log("boostPackIdList:", boostPackIdList)
+  // console.log("first_order_item:", first_order_item)
+  // console.log("variant_id22:", parseInt(first_order_item.variant_id, 10))
+
   // is one-off
-  if (first_order_item && parseInt(first_order_item.variant_id, 10) === parseInt(process.env.LEMON_SQUEEZY_MEMBERSHIP_SINGLE_TIME_VARIANT_ID as string, 10)) {
-    return await singlePayDeal(first_order_item, payload, userId)
+  // parseInt 字符串按照 10进制 解析
+  if (first_order_item && boostPackIdList.includes(parseInt(first_order_item.variant_id, 10))) {
+    return await singlePayDeal(first_order_item, payload, userId, variantId)
   }
   // is subscription
-  if (!first_order_item && parseInt(payload.data.attributes.variant_id, 10) === parseInt(process.env.LEMON_SQUEEZY_MEMBERSHIP_MONTHLY_VARIANT_ID as string, 10)) {
+  if (!first_order_item && membershipIdList.includes(parseInt(first_order_item.variant_id, 10))) {
     return await subscriptionDeal(payload, userId)
   }
+  // 这里需要兜底
 }
 
-const singlePayDeal = async (first_order_item: any, payload: any, userId: string) => {
+// 单次充值提醒
+const singlePayDeal = async (first_order_item: any, payload: any, userId: string, variantId: number) => {
   try {
     // Check if the webhook event was for this product or not
     if (
@@ -81,9 +91,10 @@ const singlePayDeal = async (first_order_item: any, payload: any, userId: string
         const key = await getSinglePayOrderKey({ identifier: payload.data.attributes.identifier })
         const orderRedisRes = await redis.get(key)
         console.log('orderRedisRes', orderRedisRes);
+
         if (!orderRedisRes) {
           await redis.setex(key, ONE_DAY, first_order_item.created_at)
-          await boostPack({ userId })
+          await boostPack({ userId }, variantId)
         }
         return NextResponse.json({ status: 200 });
       }

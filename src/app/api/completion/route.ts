@@ -2,10 +2,8 @@ import redis from '@/lib/redis';
 import { getUserDateRemaining, incrAfterChat } from '@/lib/usage/usage';
 import { DateRemaining } from '@/types/usage';
 import { RedisUserId } from '@/types/user';
-import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { NextRequest } from 'next/server';
 // import { Configuration, OpenAIApi } from 'openai-edge'; // runtime = 'edge'
-import OpenAI from 'openai';
 
 // runtime = 'edge'
 // const config = new Configuration({
